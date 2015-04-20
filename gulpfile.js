@@ -21,7 +21,7 @@ gulp.task('nodeunit', function() {
     .pipe(nodeunit({
         reporter: 'junit',
         reporterOptions: {
-            output: 'test'
+            output: 'reports'
         }
     }));
 });
