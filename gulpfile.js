@@ -8,6 +8,7 @@ var emailBuilder = require('./lib/emailBuilder');
 gulp.task('clean', function (cb) {
   return del([
     './example/dist',
+    './reports'
   ], cb);
 });
 
