@@ -4,3 +4,11 @@ node_js:
 - '0.10'
 before_script:
 - npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: steven.jmiller@gmail.com
+  api_key:
+    secure: NbVt8bmJGBmvzcOJ7u1nwISl3YT7FhhY1lTq3HNKN7lrt/OAfe9gKKAhofqUmhpn14JTVO7iNWUwTuFuRwtAmJRt9rsyXurzEA+3yRuyAxY+lhqVXhRzrO7NgUCQaQF4rWCMFnjKfAmLnktBFlfemqh+2aIwSc9uZczkiJtEsDg=
+  on:
+    tags: true
+    repo: Email-builder/gulp-email-builder
