@@ -45,36 +45,28 @@ Install this grunt plugin next to your project's [grunt.js gruntfile][getting_st
 Then add this line to your project's `grunt.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-email-builder');
+var emailBuilder = require('gulp-email-builder');
 ```
 
-[grunt]: http://gruntjs.com/
-[getting_started]: http://gruntjs.com/getting-started
+[gulp]: http://gulpjs.com/
+[getting_started]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
 
 
 
 ## Documentation
 
-Place this in your grunt file.
+Place this in your gulp file.
 ```javascript
-
-```
-
-To build your files [dynamically](http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically)
-```javascript
-
+  gulp.task('emailBuilder', function() {
+    return gulp.src(['./example/html/*.html'])
+      .pipe(emailBuilder())
+      .pipe(gulp.dest('./example/dist/'));
+  });
 ```
 
 ## Options
 
 View [Email Builder options](https://github.com/Email-builder/email-builder-core#options) for all available options.
-
-### Example Usage
-
-```javascript
-
-
-```
 
 
 ## Troubleshooting
