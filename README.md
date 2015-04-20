@@ -40,9 +40,9 @@ You can see an example setups below
 
 ## Getting Started
 
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-email-builder`
+Install this grunt plugin next to your project's gulpfile  with: `npm install gulp-email-builder`
 
-Then add this line to your project's `grunt.js` gruntfile:
+Then add this line to your project's `gulp.js` gulp:
 
 ```javascript
 var emailBuilder = require('gulp-email-builder');
@@ -65,24 +65,19 @@ Place this in your gulp file.
 ```
 
 ## Options
-
 View [Email Builder options](https://github.com/Email-builder/email-builder-core#options) for all available options.
 
 
 ## Troubleshooting
-
 If you're having issues with Litmus taking forever to load a test or the title of the test is showing up as "No Subject", it is most likely an issue with the Litmus API. You can check the [Litmus status](http://status.litmus.com) page to find out if their having any issues. If that's not the case, submit an issue and we'll look into further.
 
 
 ### Contributors
-Thanks to all [contributors](https://github.com/Email-builder/grunt-email-builder/graphs/contributors)
+Thanks to all [contributors](https://github.com/Email-builder/gulp-email-builder/graphs/contributors)
  for helping out.
 
 ## Further Reading
-
-[Release History](https://github.com/Email-builder/grunt-email-builder/wiki/Release-History)  
-
-
+[Release History](https://github.com/Email-builder/gulp-email-builder/wiki/Release-History)  
 
 ## License
-[MIT](https://github.com/Email-builder/grunt-email-builder/blob/master/LICENSE-MIT)
+[MIT](https://github.com/Email-builder/gulp-email-builder/blob/master/LICENSE-MIT)
