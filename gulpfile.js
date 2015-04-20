@@ -2,10 +2,11 @@ var del = require('del');
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var nodeunit = require('gulp-nodeunit');
+var runSequence = require('run-sequence');
 var emailBuilder = require('./lib/emailBuilder');
 
 gulp.task('clean', function (cb) {
-  del([
+  return del([
     './example/dist',
   ], cb);
 });
@@ -17,7 +18,7 @@ gulp.task('emailBuilder', function() {
 });
 
 gulp.task('nodeunit', function() {
-  return gulp.src('./test/*.js')
+  return gulp.src('./test/*_test.js')
     .pipe(nodeunit({
         reporter: 'junit',
         reporterOptions: {
@@ -32,4 +33,6 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', ['clean', 'lint', 'emailBuilder', 'nodeunit']);
+gulp.task('test', function(callback) {
+  runSequence('clean', 'lint', 'emailBuilder', 'nodeunit', callback);
+});

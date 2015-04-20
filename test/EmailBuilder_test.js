@@ -33,27 +33,27 @@ exports.emailBuilder = {
     var actual;
     var expected;
 
-    actual    = fs.readFileSync('example/dest/conditional_styles.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/conditional_styles.html', 'utf8');
     expected  = fs.readFileSync('test/expected/conditional_styles.html', 'utf8');
     test.equal(expected, actual, 'should embed conditional styles');
 
-    actual    = fs.readFileSync('example/dest/embedded_styles_ignored.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/embedded_styles_ignored.html', 'utf8');
     expected  = fs.readFileSync('test/expected/embedded_styles_ignored.html', 'utf8');
     test.equal(expected, actual, 'should embed style tags with data-embed attribute');
 
-    actual    = fs.readFileSync('example/dest/embedded_styles_inlined.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/embedded_styles_inlined.html', 'utf8');
     expected  = fs.readFileSync('test/expected/embedded_styles_inlined.html', 'utf8');
     test.equal(expected, actual, 'should inline embedded styles');
 
-    actual    = fs.readFileSync('example/dest/external_styles_embedded.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/external_styles_embedded.html', 'utf8');
     expected  = fs.readFileSync('test/expected/external_styles_embedded.html', 'utf8');
     test.equal(expected, actual, 'should embed link tags with data-embed attribute');
 
-    actual    = fs.readFileSync('example/dest/external_styles_ignored.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/external_styles_ignored.html', 'utf8');
     expected  = fs.readFileSync('test/expected/external_styles_ignored.html', 'utf8');
     test.equal(expected, actual, 'should preserve link tags with data-embed-ignore attribute');
 
-    actual    = fs.readFileSync('example/dest/external_styles_inlined.html', 'utf8');
+    actual    = fs.readFileSync('example/dist/external_styles_inlined.html', 'utf8');
     expected  = fs.readFileSync('test/expected/external_styles_inlined.html', 'utf8');
     test.equal(expected, actual, 'should inline external styles');
 
