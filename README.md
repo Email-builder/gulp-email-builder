@@ -1,4 +1,5 @@
 # grunt-email-builder
+[![Build Status](https://travis-ci.org/Email-builder/gulp-email-builder.svg?branch=master)](https://travis-ci.org/Email-builder/gulp-email-builder)
 
 Uses [Email Builder](https://github.com/Email-builder/email-builder-core) to inline css into HTML tags, send tests to Litmus, and send test emails to yourself.
 
