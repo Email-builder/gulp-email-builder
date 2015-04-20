@@ -20,15 +20,15 @@
     "gulpplugin"
   ],
   "dependencies": {
-    "bluebird": "^2.9.24",
+    "del": "^1.1.1",
     "email-builder-core": "^1.1.2",
     "gulp-util": "^3.0.4",
     "through2": "^0.6.5"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-clean": "^0.3.1",
     "gulp-jshint": "^1.10.0",
+    "gulp-nodeunit": "0.0.5",
     "jshint-stylish": "^1.0.1"
   }
 }

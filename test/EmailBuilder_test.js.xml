@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="EmailBuilder_test.js"
+             errors="1"
+             failures="0"
+             tests="1">
+    
+      
+      <testcase name="emailBuilder - compile">
+        
+          <failure message="Expected 6 assertions, 0 ran">
+            Error: Expected 6 assertions, 0 ran
+    at Object.test.done (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/types.js:121:25)
+    at Object.exports.runTest (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:73:14)
+    at /Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:118:25
+    at /Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:513:13
+    at iterate (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:123:13)
+    at async.forEachSeries (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:139:9)
+    at _concat (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:512:9)
+    at Object.concatSeries (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:152:23)
+    at Object.exports.runSuite (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:96:11)
+    at /Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:125:21
+    at /Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:513:13
+    at iterate (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:123:13)
+    at async.forEachSeries (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:139:9)
+    at _concat (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:512:9)
+    at Object.concatSeries (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:152:23)
+    at Object.exports.runSuite (/Users/stevenjohnmiller/Documents/projects/gulp-email-builder/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:96:11)
+          </failure>
+        
+      </testcase>
+    
+  </testsuite>
+

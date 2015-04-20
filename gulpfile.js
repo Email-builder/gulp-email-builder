@@ -1,11 +1,13 @@
+var del = require('del');
 var gulp = require('gulp');
-var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
+var nodeunit = require('gulp-nodeunit');
 var emailBuilder = require('./lib/emailBuilder');
 
-gulp.task('clean', function () {
-  return gulp.src('examples/dist/*.html', {read: false})
-    .pipe(clean());
+gulp.task('clean', function (cb) {
+  del([
+    './example/dist',
+  ], cb);
 });
 
 gulp.task('emailBuilder', function() {
@@ -14,10 +16,20 @@ gulp.task('emailBuilder', function() {
     .pipe(gulp.dest('./example/dist/'));
 });
 
+gulp.task('nodeunit', function() {
+  return gulp.src('./test/*.js')
+    .pipe(nodeunit({
+        reporter: 'junit',
+        reporterOptions: {
+            output: 'test'
+        }
+    }));
+});
+
 gulp.task('lint', function() {
   return gulp.src(['./lib/*.js', 'gulpfile.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', ['clean', 'lint', 'emailBuilder']);
+gulp.task('default', ['clean', 'lint', 'emailBuilder', 'nodeunit']);

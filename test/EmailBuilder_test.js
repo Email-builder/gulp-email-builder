@@ -1,5 +1,3 @@
-var grunt         = require('grunt');
-
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -20,7 +18,7 @@ var grunt         = require('grunt');
     test.ifError(value)
 */
 
-grunt.loadTasks('tasks');
+var fs = require('fs');
 
 exports.emailBuilder = {
   setUp: function(done) {
@@ -28,35 +26,35 @@ exports.emailBuilder = {
     done();
   },
   compile: function(test) {
-    
+
     // TESTS
     // ----------
     test.expect(6);
     var actual;
     var expected;
 
-    actual    = grunt.file.read('example/dest/conditional_styles.html');
-    expected  = grunt.file.read('test/expected/conditional_styles.html');
+    actual    = fs.readFileSync('example/dest/conditional_styles.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/conditional_styles.html', 'utf8');
     test.equal(expected, actual, 'should embed conditional styles');
 
-    actual    = grunt.file.read('example/dest/embedded_styles_ignored.html');
-    expected  = grunt.file.read('test/expected/embedded_styles_ignored.html');
+    actual    = fs.readFileSync('example/dest/embedded_styles_ignored.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/embedded_styles_ignored.html', 'utf8');
     test.equal(expected, actual, 'should embed style tags with data-embed attribute');
 
-    actual    = grunt.file.read('example/dest/embedded_styles_inlined.html');
-    expected  = grunt.file.read('test/expected/embedded_styles_inlined.html');
+    actual    = fs.readFileSync('example/dest/embedded_styles_inlined.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/embedded_styles_inlined.html', 'utf8');
     test.equal(expected, actual, 'should inline embedded styles');
 
-    actual    = grunt.file.read('example/dest/external_styles_embedded.html');
-    expected  = grunt.file.read('test/expected/external_styles_embedded.html');
+    actual    = fs.readFileSync('example/dest/external_styles_embedded.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/external_styles_embedded.html', 'utf8');
     test.equal(expected, actual, 'should embed link tags with data-embed attribute');
 
-    actual    = grunt.file.read('example/dest/external_styles_ignored.html');
-    expected  = grunt.file.read('test/expected/external_styles_ignored.html');
+    actual    = fs.readFileSync('example/dest/external_styles_ignored.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/external_styles_ignored.html', 'utf8');
     test.equal(expected, actual, 'should preserve link tags with data-embed-ignore attribute');
 
-    actual    = grunt.file.read('example/dest/external_styles_inlined.html');
-    expected  = grunt.file.read('test/expected/external_styles_inlined.html');
+    actual    = fs.readFileSync('example/dest/external_styles_inlined.html', 'utf8');
+    expected  = fs.readFileSync('test/expected/external_styles_inlined.html', 'utf8');
     test.equal(expected, actual, 'should inline external styles');
 
     test.done();
