@@ -14,29 +14,8 @@ gulp.task('clean', function (cb) {
 
 gulp.task('emailBuilder', function() {
 
-  var options = {
-    emailTest : {
-
-      // Your Email
-      email : 'yourEmail@email.com',
-
-      // Your email Subject
-      subject : 'Email Subject',
-
-      // Optional
-      transport: {
-        type: 'SMTP',
-        service: 'gmail',
-        auth: {
-          user: 'gmail.user@gmail.com',
-          pass: 'gmailpass'
-        }
-      }
-    }
-  };
-
   return gulp.src(['./example/html/*.html'])
-    .pipe(emailBuilder(options))
+    .pipe(emailBuilder())
     .pipe(gulp.dest('./example/dist/'));
 });
 
