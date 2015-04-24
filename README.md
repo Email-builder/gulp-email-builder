@@ -1,4 +1,6 @@
 # gulp-email-builder
+
+[![Join the chat at https://gitter.im/Email-builder/gulp-email-builder](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Email-builder/gulp-email-builder?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/Email-builder/gulp-email-builder.svg?branch=master)](https://travis-ci.org/Email-builder/gulp-email-builder)
 
 Uses [Email Builder](https://github.com/Email-builder/email-builder-core) to inline css into HTML tags, send tests to Litmus, and send test emails to yourself.
