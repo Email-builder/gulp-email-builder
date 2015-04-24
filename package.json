@@ -1,6 +1,6 @@
 {
   "name": "gulp-email-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gulp email builder",
   "main": "lib/emailBuilder.js",
   "scripts": {
