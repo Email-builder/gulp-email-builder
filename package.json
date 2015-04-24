@@ -1,7 +1,7 @@
 {
   "name": "gulp-email-builder",
-  "version": "1.0.1",
-  "description": "Gulp email builder",
+  "version": "1.0.2",
+  "description": "Gulp email builder. Uses Email Builder to inline css, send email tests, and send tests to Litmus",
   "main": "lib/emailBuilder.js",
   "scripts": {
     "test": "gulp test"
@@ -10,8 +10,11 @@
     "type": "git",
     "url": "https://yargalot@github.com/Email-builder/gulp-email-builder.git"
   },
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    "Jeremy Peter <jeremywpeter@gmail.com> (https://github.com/jeremypeter)",
+    "Steve Miller <steven.jmiller@gmail.com> (http://www.stevenjohnmiller.com.au)"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Email-builder/gulp-email-builder/issues"
   },
@@ -26,10 +29,15 @@
     "through2": "^0.6.5"
   },
   "devDependencies": {
+    "bluebird": "^2.9.24",
+    "chai": "^2.2.0",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.10.0",
-    "gulp-nodeunit": "0.0.5",
+    "gulp-mocha": "^2.0.1",
     "jshint-stylish": "^1.0.1",
-    "run-sequence": "^1.0.2"
+    "mocha": "^2.2.4",
+    "run-sequence": "^1.0.2",
+    "sinon": "^1.14.1",
+    "vinyl": "^0.4.6"
   }
 }

@@ -82,4 +82,4 @@ Thanks to all [contributors](https://github.com/Email-builder/gulp-email-builder
 [Release History](https://github.com/Email-builder/gulp-email-builder/wiki/Release-History)  
 
 ## License
-[MIT](https://github.com/Email-builder/gulp-email-builder/blob/master/LICENSE-MIT)
+[MIT](https://github.com/Email-builder/gulp-email-builder/blob/master/LICENSE)

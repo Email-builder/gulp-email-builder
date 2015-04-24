@@ -1,62 +1,82 @@
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
-
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
-
+var expect = require('chai').expect;
+var sinon =  require('sinon');
+var builder = require('../lib/emailBuilder');
 var fs = require('fs');
+var File = require('vinyl');
+var path = require('path');
+var core = require('email-builder-core');
+var Promise = require('bluebird');
 
-exports.emailBuilder = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  compile: function(test) {
+function getFile(filePath) {
+    return new File({
+        path: path.resolve(filePath),
+        cwd: './test/',
+        base: path.dirname(filePath),
+        contents: fs.readFileSync(filePath)
+    });
+}
 
-    // TESTS
-    // ----------
-    test.expect(6);
-    var actual;
-    var expected;
+function getPromise(html){
+  return Promise.resolve(html)
+}
 
-    actual    = fs.readFileSync('example/dist/conditional_styles.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/conditional_styles.html', 'utf8');
-    test.equal(expected, actual, 'should embed conditional styles');
+describe('gulp-email-builder', function () {
 
-    actual    = fs.readFileSync('example/dist/embedded_styles_ignored.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/embedded_styles_ignored.html', 'utf8');
-    test.equal(expected, actual, 'should embed style tags with data-embed attribute');
-
-    actual    = fs.readFileSync('example/dist/embedded_styles_inlined.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/embedded_styles_inlined.html', 'utf8');
-    test.equal(expected, actual, 'should inline embedded styles');
-
-    actual    = fs.readFileSync('example/dist/external_styles_embedded.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/external_styles_embedded.html', 'utf8');
-    test.equal(expected, actual, 'should embed link tags with data-embed attribute');
-
-    actual    = fs.readFileSync('example/dist/external_styles_ignored.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/external_styles_ignored.html', 'utf8');
-    test.equal(expected, actual, 'should preserve link tags with data-embed-ignore attribute');
-
-    actual    = fs.readFileSync('example/dist/external_styles_inlined.html', 'utf8');
-    expected  = fs.readFileSync('test/expected/external_styles_inlined.html', 'utf8');
-    test.equal(expected, actual, 'should inline external styles');
-
-    test.done();
+  var stream, stub, spy;
+  var cwd = process.cwd();
+  var src = fs.readFileSync(cwd + '/test/expected/email.html');
+  var options = {
+    emailTest : {
+      email : 'yourEmail@email.com',
+      subject : 'Email Subject'
+    }, 
+    litmus : {
+      username : 'username',
+      password : 'password',
+      url : 'https://yoursite.litmus.com',
+      applications : ['gmailnew']
+    }
   }
-};
+
+  it('should inline css', function(done){
+
+    spy = sinon.spy(core.prototype, 'inlineCss');
+
+    stream = builder({});
+    stream.write(getFile(cwd + '/example/html/email.html'));    
+    stream.once('data', function(file){
+      expect(file.isBuffer()).to.be.true;
+      expect(file.contents.toString()).to.equal(src.toString());
+      expect(spy.called).to.be.true;
+      done();
+    });
+
+  });
+
+  it('should call sendLitmusTest if `litmus` option defined', function(done){
+   
+    stub =  sinon.stub(core.prototype, 'sendLitmusTest', getPromise);
+
+    stream = builder(options.litmus);
+    stream.write(getFile(cwd + '/example/html/email.html'));    
+    stream.once('data', function(file){
+      expect(stub.called).to.be.true;
+      done();
+    });
+
+  });
+
+  it('should call sendEmailTest if `emailTest` option defined', function(done){
+   
+    stub =  sinon.stub(core.prototype, 'sendEmailTest', getPromise);
+
+    stream = builder(options.emailTest);
+    stream.write(getFile(cwd + '/example/html/email.html'));    
+    stream.once('data', function(file){
+      expect(stub.called).to.be.true;
+      done();
+    });
+
+  });
+
+});

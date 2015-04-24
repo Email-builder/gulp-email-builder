@@ -1,7 +1,7 @@
 var del = require('del');
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
-var nodeunit = require('gulp-nodeunit');
+var mocha = require('gulp-mocha');
 var runSequence = require('run-sequence');
 var emailBuilder = require('./lib/emailBuilder');
 
@@ -19,14 +19,9 @@ gulp.task('emailBuilder', function() {
     .pipe(gulp.dest('./example/dist/'));
 });
 
-gulp.task('nodeunit', function() {
-  return gulp.src('./test/*_test.js')
-    .pipe(nodeunit({
-        reporter: 'junit',
-        reporterOptions: {
-            output: 'reports'
-        }
-    }));
+gulp.task('mochaTest', function() {
+  return gulp.src('./test/*_test.js', {read: false})
+    .pipe(mocha({reporter: 'spec'}));
 });
 
 gulp.task('lint', function() {
@@ -36,5 +31,5 @@ gulp.task('lint', function() {
 });
 
 gulp.task('test', function(callback) {
-  runSequence('clean', 'lint', 'emailBuilder', 'nodeunit', callback);
+  runSequence('clean', 'lint', 'emailBuilder', 'mochaTest', callback);
 });
