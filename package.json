@@ -1,14 +1,14 @@
 {
   "name": "gulp-email-builder",
-  "version": "1.0.2",
-  "description": "Gulp email builder. Uses Email Builder to inline css, send email tests, and send tests to Litmus",
+  "version": "1.0.3",
+  "description": "Uses Email Builder to inline css, send email tests, and send tests to Litmus",
   "main": "lib/emailBuilder.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "https://yargalot@github.com/Email-builder/gulp-email-builder.git"
+    "url": "https://github.com/Email-builder/gulp-email-builder.git"
   },
   "contributors": [
     "Jeremy Peter <jeremywpeter@gmail.com> (https://github.com/jeremypeter)",
@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/Email-builder/gulp-email-builder",
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "inline",
+    "email",
+    "css",
+    "litmus"
   ],
   "dependencies": {
     "del": "^1.1.1",

@@ -71,7 +71,7 @@ View [Email Builder options](https://github.com/Email-builder/email-builder-core
 
 
 ## Troubleshooting
-If you're having issues with Litmus taking forever to load a test or the title of the test is showing up as "No Subject", it is most likely an issue with the Litmus API. You can check the [Litmus status](http://status.litmus.com) page to find out if their having any issues. If that's not the case, submit an issue and we'll look into further.
+If you're having issues with Litmus taking forever to load a test or the title of the test is showing up as "No Subject", it is most likely an issue with the Litmus API. You can check the [Litmus status](http://status.litmus.com) page to find out if they're having any issues. If that's not the case, submit an issue and we'll look into further.
 
 
 ### Contributors
