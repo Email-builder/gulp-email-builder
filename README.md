@@ -61,7 +61,7 @@ Place this in your gulp file.
 ```javascript
   gulp.task('emailBuilder', function() {
     return gulp.src(['./example/html/*.html'])
-      .pipe(emailBuilder())
+      .pipe(emailBuilder(options))
       .pipe(gulp.dest('./example/dist/'));
   });
 ```
