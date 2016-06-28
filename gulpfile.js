@@ -24,7 +24,7 @@ gulp.task('sendEmail', function(){
   return gulp.src(['./example/html/email.html'])
     .pipe(emailBuilder({
       emailTest: {
-        email : 'jeremy.peter@meltmedia.com',
+        email : process.env.GMAIL_USER,
         subject : 'Email Subject',
         nodemailer: {
           transporter: {

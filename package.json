@@ -1,6 +1,6 @@
 {
   "name": "gulp-email-builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Uses Email Builder to inline css, send email tests, and send tests to Litmus",
   "main": "lib/emailBuilder.js",
   "scripts": {
