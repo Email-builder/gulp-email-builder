@@ -19,6 +19,40 @@ gulp.task('emailBuilder', function() {
     .pipe(gulp.dest('./example/dist/'));
 });
 
+// Send to Email 
+gulp.task('sendEmail', function(){
+  return gulp.src(['./example/html/email.html'])
+    .pipe(emailBuilder({
+      emailTest: {
+        email : 'jeremy.peter@meltmedia.com',
+        subject : 'Email Subject',
+        nodemailer: {
+          transporter: {
+            service: 'gmail',
+            auth: {
+              user: process.env.GMAIL_USER,
+              pass: process.env.GMAIL_PASS
+            }
+          }
+        }
+      }
+    }));
+});
+
+// Send to Litmus
+gulp.task('sendLitmus', function(){
+  return gulp.src(['./example/html/email.html'])
+    .pipe(emailBuilder({
+      litmus : {
+        subject : 'Custom subject line',
+        username : process.env.LIT_USER,
+        password : process.env.LIT_PASS,
+        url : process.env.LIT_URL,
+        applications : ['gmailnew', 'hotmail', 'outlookcom', 'ol2000', 'ol2002', 'ol2003', 'ol2007', 'ol2010','ol2011', 'ol2013', 'appmail8', 'iphone5', 'ipad3']
+      }
+    }));
+});
+
 gulp.task('mochaTest', function() {
   return gulp.src('./test/*_test.js', {read: false})
     .pipe(mocha({reporter: 'spec'}));
