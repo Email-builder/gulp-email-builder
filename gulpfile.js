@@ -15,7 +15,7 @@ gulp.task('clean', function (cb) {
 gulp.task('emailBuilder', function() {
 
   return gulp.src(['./example/html/*.html'])
-    .pipe(emailBuilder())
+    .pipe(emailBuilder().build())
     .pipe(gulp.dest('./example/dist/'));
 });
 

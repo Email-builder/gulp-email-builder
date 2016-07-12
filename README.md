@@ -61,9 +61,24 @@ Place this in your gulp file.
 ```javascript
   gulp.task('emailBuilder', function() {
     return gulp.src(['./example/html/*.html'])
-      .pipe(emailBuilder(options))
+      .pipe(emailBuilder(options).build())
       .pipe(gulp.dest('./example/dist/'));
   });
+```
+
+## Other available methods
+
+Besides the main `emailBuilder(options).build()` function, the `email-builder-core` methods are exposed so users can use them on an individual basis as long as you pass `false` as the argument to the main `emailBuilder` function. Then pass the options needed for whatever individual method you want to run.
+
+- emailBuilder(options).inlineCss()
+- emailBuilder(options).sendEmailTest()
+- emailBuilder(options).sendLitmusTest()
+
+**Example**
+```javascript
+...
+.pipe(emailBuilder(options).sendEmailTest())
+...
 ```
 
 ## Options
