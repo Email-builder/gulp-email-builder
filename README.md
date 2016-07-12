@@ -68,7 +68,7 @@ Place this in your gulp file.
 
 ## Other available methods
 
-Besides the main `emailBuilder(options).build()` function, the `email-builder-core` methods are exposed so users can use them on an individual basis as long as you pass `false` as the argument to the main `emailBuilder` function. Then pass the options needed for whatever individual method you want to run.
+Besides the main `emailBuilder(options).build()` function, the `email-builder-core` methods are exposed so users can use them on an individual basis.
 
 - emailBuilder(options).inlineCss()
 - emailBuilder(options).sendEmailTest()
@@ -83,6 +83,22 @@ Besides the main `emailBuilder(options).build()` function, the `email-builder-co
 
 ## Options
 View [Email Builder options](https://github.com/Email-builder/email-builder-core#options) for all available options.
+
+## Complete Example
+
+```javascript
+var EmailBuilder = require('gulp-email-builder');
+
+var options = { encodeSpecialChars: true }
+var builder = EmailBuilder(options);
+
+gulp.task('emailBuilder', function() {
+  return gulp.src(['./example/html/*.html'])
+    .pipe(builder.build())
+    .pipe(gulp.dest('./example/dist/'));
+});
+
+```
 
 
 ## Troubleshooting
